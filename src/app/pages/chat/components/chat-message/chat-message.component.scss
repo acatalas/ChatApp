@@ -1,0 +1,14 @@
+.chat-message{
+    padding: 0.8em 0.8em 0em 0.8em;
+    img{
+        height: 100%;
+    }
+
+    .bubble{
+        padding-left: 0.5em;
+
+        .name{
+            font-weight: bold;
+        }
+    }
+}
