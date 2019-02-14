@@ -11,6 +11,9 @@ import { NgxLoadingModule } from '../../node_modules/ngx-loading';
 //Services
 import { AlertService } from './services/alert.service';
 import { LoadingService } from './services/loading.service';
+import { AuthService } from './services/auth.service';
+
+
 
 //Components
 import { AppComponent } from './app.component';
@@ -46,7 +49,8 @@ import { ChatroomWindowComponent } from './pages/chat/components/chatroom-window
     NgxLoadingModule.forRoot({})
   ],
   providers: [AlertService,
-              LoadingService],
+              LoadingService,
+              AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
