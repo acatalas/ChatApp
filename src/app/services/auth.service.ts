@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { Observable, of, from } from 'rxjs';
 import { User } from '../classes/user';
 import { Router } from '@angular/router';
-import { AlertService } from './alert.service';
 import { Alert } from '../classes/alert';
+import { AlertService } from './alert.service';
 import { AngularFireAuth, AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
@@ -48,7 +48,7 @@ export class AuthService {
     );
   }
 
-  public login(email: string, password: string) : Observable<boolean> {
+  public login(email: string, password: string): Observable<boolean> {
     return from(
       this.afAuth.auth.signInWithEmailAndPassword(email, password)
       .then((user) => true)
@@ -57,8 +57,9 @@ export class AuthService {
   }
 
   public logout(): void{
-    //TODO call Firebase logout function
-    this.router.navigate(['/login']);
-    this.alertService.alerts.next(new Alert("You have been signed out."));
+    this.afAuth.auth.signOut().then(() => {
+      this.router.navigate(['/login']);
+      this.alertService.alerts.next(new Alert("You have been signed out."));
+    });
   }
 }

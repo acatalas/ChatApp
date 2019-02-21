@@ -8,6 +8,8 @@ import { environment } from '../environments/environment';
 //Modules
 import { AlertModule } from 'ngx-bootstrap';
 import { NgxLoadingModule } from '../../node_modules/ngx-loading';
+
+//Firebase
 import { AngularFireModule} from '@angular/fire';
 import { AngularFirestoreModule} from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/storage';

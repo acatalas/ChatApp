@@ -1,12 +1,12 @@
+import { Router, ActivatedRoute } from '@angular/router';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';
-import { Alert } from '../../classes/alert';
-import { AlertType } from '../../enums/alert-type.enums';
-import {Router, ActivatedRoute} from '@angular/router';
-import { Subscription } from 'rxjs';
 import { AlertService } from '../../services/alert.service';
+import { AlertType } from '../../enums/alert-type.enums';
+import { Alert } from '../../classes/alert';
 import { LoadingService } from '../../services/loading.service';
 import { AuthService } from '../../services/auth.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-login',
@@ -22,15 +22,20 @@ export class LoginComponent implements OnInit, OnDestroy {
   constructor(
     private fb: FormBuilder, 
     private alertService: AlertService,
-    private loadingService : LoadingService,
-    private authService: AuthService,
+    private loadingService: LoadingService,
+    private afAuth: AuthService,
     private router: Router,
     private route: ActivatedRoute) {
-    this.createForm();
+    
+      this.createForm();
    }
 
   ngOnInit() {
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/chat';
+  }
+
+  ngOnDestroy(){
+    this.subscriptions.forEach(sub => sub.unsubscribe());
   }
 
   private createForm(): void {
@@ -46,7 +51,7 @@ export class LoginComponent implements OnInit, OnDestroy {
       const {email, password} = this.loginForm.value;
        
       this.subscriptions.push(
-        this.authService.login(email, password).subscribe(success => {
+        this.afAuth.login(email, password).subscribe(success => {
           if(success) {
             this.router.navigateByUrl(this.returnUrl);
           } else {
@@ -56,13 +61,9 @@ export class LoginComponent implements OnInit, OnDestroy {
         })
       );
     } else {
-      this.displayFailedLogin();
       this.loadingService.isLoading.next(false);
+      this.displayFailedLogin();
     }
-  }
-
-  ngOnDestroy(){
-    this.subscriptions.forEach(sub => sub.unsubscribe());
   }
 
   private displayFailedLogin(): void {

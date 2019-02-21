@@ -4,6 +4,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { SignupComponent } from './pages/signup/signup.component';
 import { ChatComponent } from './pages/chat/chat.component';
 import { AuthGuard } from './guards/auth.guard';
+import { CanActivate, ActivatedRoute, RouterStateSnapshot } from '@angular/router';
 
 const routes: Routes = [
   {path: '', pathMatch:'full', redirectTo: '/login'},

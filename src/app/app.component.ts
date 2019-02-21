@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AlertService } from './services/alert.service';
 import { Alert } from './classes/alert';
+import { AlertService } from './services/alert.service';
 import { LoadingService } from './services/loading.service';
 import { Subscription } from 'rxjs';
 
@@ -9,12 +9,14 @@ import { Subscription } from 'rxjs';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
+
 export class AppComponent implements OnInit {
   private subscriptions: Subscription[] = [];
   public alerts: Array<Alert> = [];
   public loading: boolean = false;
 
   constructor(private alertService: AlertService, private loadingService: LoadingService) { }
+  
   ngOnInit() {
     this.subscriptions.push(
       this.alertService.alerts.subscribe(alert => {
