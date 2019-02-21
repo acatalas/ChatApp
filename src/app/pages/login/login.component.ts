@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit, OnDestroy {
     private fb: FormBuilder, 
     private alertService: AlertService,
     private loadingService: LoadingService,
-    private afAuth: AuthService,
+    private auth: AuthService,
     private router: Router,
     private route: ActivatedRoute) {
     
@@ -47,11 +47,12 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   public submit(): void{
     if(this.loginForm.valid){
+      
       this.loadingService.isLoading.next(true);
       const {email, password} = this.loginForm.value;
        
       this.subscriptions.push(
-        this.afAuth.login(email, password).subscribe(success => {
+        this.auth.login(email, password).subscribe(success => {
           if(success) {
             this.router.navigateByUrl(this.returnUrl);
           } else {
