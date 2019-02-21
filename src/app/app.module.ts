@@ -19,6 +19,7 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AlertService } from './services/alert.service';
 import { LoadingService } from './services/loading.service';
 import { AuthService } from './services/auth.service';
+import { ChatroomService } from './services/chatroom.service';
 
 //Guards
 import { AuthGuard } from './guards/auth.guard';
@@ -63,7 +64,8 @@ import { ChatroomWindowComponent } from './pages/chat/components/chatroom-window
   providers: [AlertService,
               LoadingService,
               AuthService,
-              AuthGuard],
+              AuthGuard,
+              ChatroomService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
