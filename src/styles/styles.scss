@@ -2,9 +2,11 @@
 @import '../../node_modules/bootstrap/scss/bootstrap';
 
 .container-wrapper{
-    height: calc(90vh - 80px) !important;
+    height: calc(90vh - 3.5em) !important;
 }
 
-.navbar{
-    height: 80px;
+.alert {
+    position: fixed;
+    top: 3.5em;
+    width: 100%;
 }

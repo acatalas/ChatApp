@@ -65,7 +65,7 @@ export class SignupComponent implements OnInit, OnDestroy {
       );
       
     } else {
-      const failedSignupAttempt = new Alert('Your email or password are not valid or empty', AlertType.Danger);
+      const failedSignupAttempt = new Alert('Please insert a valid email address and/or password.', AlertType.Danger);
       this.loadingService.isLoading.next(false);
       this.alertService.alerts.next(failedSignupAttempt);
     }

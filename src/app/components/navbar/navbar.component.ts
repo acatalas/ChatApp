@@ -8,7 +8,7 @@ import { AuthService } from '../../services/auth.service';
 })
 
 export class NavbarComponent implements OnInit {
-  
+  isCollapsed = false;
   public currentUser: any = null;
   
   constructor(private auth: AuthService) { }

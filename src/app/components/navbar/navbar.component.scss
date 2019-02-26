@@ -1,14 +1,22 @@
 @import '../../../styles/variables';
 
-span {
-    color: #ffffff;
+.navbar-brand{
+    padding-left: 1vw;
 }
 
-a{
-    color: $light-grey;
-    margin-left: 3em;
+li{
+    float: right;
+    text-align: center;
+    
+    a {
+        color: $light-grey;
+        margin-left: 1em;
+        margin-right: 1em; 
 
-    &.active{
-        border-bottom: 3px solid $accent;
+        &.active{
+            border-bottom: 3px solid $accent;
+        }
     }
 }
+
+

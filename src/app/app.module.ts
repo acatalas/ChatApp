@@ -7,6 +7,7 @@ import { environment } from '../environments/environment';
 
 //Modules
 import { AlertModule } from 'ngx-bootstrap';
+import { CollapseModule } from 'ngx-bootstrap/collapse';
 import { NgxLoadingModule } from '../../node_modules/ngx-loading';
 
 //Firebase
@@ -56,6 +57,7 @@ import { ChatroomWindowComponent } from './pages/chat/components/chatroom-window
     FormsModule,
     AlertModule.forRoot(),
     NgxLoadingModule.forRoot({}),
+    CollapseModule.forRoot(),
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     AngularFireStorageModule,
