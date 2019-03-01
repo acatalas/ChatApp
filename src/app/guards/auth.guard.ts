@@ -4,7 +4,7 @@ import { map, take, tap } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { Alert } from '../classes/alert';
 import { AlertService } from '../services/alert.service';
-import { AlertType } from '../enums/alert-type.enum';
+import { AlertType } from '../enums/alert-type.enums';
 import { AuthService } from '../services/auth.service';
 
 @Injectable({

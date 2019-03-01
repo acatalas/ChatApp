@@ -8,6 +8,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
 
 export class ChatroomService {
 
+//List of chatrooms from the Firebase database
 public chatrooms: Observable<any>;
 
   constructor(private db: AngularFirestore) {

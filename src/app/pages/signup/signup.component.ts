@@ -46,24 +46,27 @@ export class SignupComponent implements OnInit, OnDestroy {
       password: ['', [Validators.required, Validators.minLength(8)]]
     });
   }
- 
+  
+  //Method called when the user clicke the "submit" button
   public submit(): void {
-    
-    // TODO call the auth service
-    
+    //Checks if the form is valid checking the values inputted by the user
     if(this.signupForm.valid){
-      
+      //Shows loading screen
       this.loadingService.isLoading.next(true);
+      //Saves the form's fields to an object
       const {firstName, lastName, email, password} = this.signupForm.value;
       this.subscriptions.push(
+        //Calls the Auth Service to create the user
         this.authService.signup(firstName, lastName, email, password).subscribe(success =>  {
           if(success) {
+            //If the user is created successfully, takes the user to the chat page
             this.router.navigateByUrl(this.returnUrl);
           }
+          //Stops loading screen
           this.loadingService.isLoading.next(false);
         })
       );
-      
+      //Stops loading and shows error message
     } else {
       const failedSignupAttempt = new Alert('Please insert a valid email address and/or password.', AlertType.Danger);
       this.loadingService.isLoading.next(false);

@@ -4,10 +4,12 @@
     <h2 class="text-center">Login</h2>
     <form [formGroup]="loginForm" (submit)="submit()" novalidate>
       <div class="form-group">
-        <input type="email" class="form-control" id="email-input" placeholder="Email" formControlName="email">
+        <input type="email" class="form-control" id="email-input" 
+        placeholder="Email" formControlName="email">
       </div>
       <div class="form-group">
-        <input type="password" class="form-control" id="password-input" placeholder="Password" formControlName="password">
+        <input type="password" class="form-control" id="password-input" 
+        placeholder="Password" formControlName="password">
       </div>
       <button type="submit" class="btn btn-primary">Submit</button>
     </form>

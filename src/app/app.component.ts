@@ -15,6 +15,7 @@ export class AppComponent implements OnInit {
   public alerts: Array<Alert> = [];
   public loading: boolean = false;
 
+  //DI of AlertService and LoadingService
   constructor(private alertService: AlertService, private loadingService: LoadingService) { }
   
   ngOnInit() {
